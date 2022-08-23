@@ -1,5 +1,5 @@
 
-export default function Authernticated_app() {
+export default function AuthernticatedApp() {
   return (
     <div>Authernticated_app</div>
   )

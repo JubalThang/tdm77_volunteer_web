@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+    .primary-btn {
+        @apply bg-primary text-white font-medium px-4 py-2 rounded-md cursor-pointer h-12 uppercase
+    }
+    .primary-btn:hover {
+        @apply bg-secondary
+    }
+}
