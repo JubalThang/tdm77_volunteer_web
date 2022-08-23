@@ -1,6 +1,12 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
 
 export default function AuthernticatedApp() {
   return (
-    <div>Authernticated_app</div>
+    <div className="w-screen">
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </div>
   )
 }

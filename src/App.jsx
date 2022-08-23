@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthernticatedApp from './components/AuthernticatedApp';
 import Topbar from './components/Topbar';
 import UnAuthernticatedApp from './components/UnAuthernticatedApp';
+import Write from './components/Write';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
@@ -13,9 +15,10 @@ function App() {
   return (
     <div>
       <Topbar currentUser={currentUser} />
-      {
-        currentUser ? <AuthernticatedApp currentUser={currentUser} /> : <UnAuthernticatedApp />
-      }
+      <Routes>
+        <Route path='/' element={ currentUser ?  <AuthernticatedApp currentUser={currentUser} /> : <UnAuthernticatedApp /> } />
+        <Route path='/write' element={<Write />} />
+      </Routes>
     </div>
   )
 }

@@ -9,3 +9,7 @@
         @apply bg-secondary
     }
 }
+
+.textarea-height {
+    flex: 1;
+}
