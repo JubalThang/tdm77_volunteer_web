@@ -18,8 +18,8 @@ export default function Write() {
             <div className='p-4 overflow-hidden w-full h-full flex flex-col justify-between'>
                 <div className='h-32'>
                     <h1 className=" text-primary font-bold text-xl">Chapters:</h1>
-                    <div className='p-4 overflow-scroll flex space-x-8'>
-                        <div className="bg-primary text-white font-bold p-2 w-12 flex justify-center rounded-md">1</div>
+                    <div className='p-4 overflow-y-hidden flex space-x-8 w-full'>
+                        <div className="bg-primary text-white font-bold p-2 w-12 h-auto flex justify-center rounded-md">1</div>
                     </div>
                 </div>
                 <div className='textarea-height bg-green-300'>
