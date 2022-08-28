@@ -26,3 +26,9 @@ function App() {
 }
 
 export default App;
+
+
+// TODO::
+// Show hide side bar on smaller screen 
+// save button on write page will save on localStorage or push direct to firebase?
+// 

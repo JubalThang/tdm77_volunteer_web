@@ -16,7 +16,7 @@ export default function Write() {
                 <button className='primary-btn min-w-min whitespace-nowrap'>Add Book</button>
             </div>
             <div className='p-4 overflow-hidden w-full h-full flex flex-col justify-between'>
-                <div className='h-32'>
+                <div className='h-28 '>
                     <h1 className=" text-primary font-bold text-xl">Chapters:</h1>
                     <div className='p-4 overflow-scroll flex space-x-8'>
                         <div className="bg-primary text-white font-bold p-2 w-12 flex justify-center rounded-md">1</div>
@@ -26,7 +26,7 @@ export default function Write() {
                     <textarea className=" h-full w-full border p-5 " placeholder="Start typing verse here..." />
                   
                 </div>
-                <div className='flex justify-end items-center h-32'>
+                <div className='flex justify-end items-end h-16 '>
                     <button className='primary-btn'>Save</button>
                 </div>
             </div>
