@@ -8,6 +8,9 @@
     .primary-btn:hover {
         @apply bg-secondary
     }
+    .input-area {
+        @apply py-2 px-4 border border-primary w-full rounded h-12
+    }
 }
 
 .textarea-height {

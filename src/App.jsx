@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthernticatedApp from './components/AuthernticatedApp';
 import Home from './components/Home';
+import { SignupAccount } from './components/SignupAccount';
 import Topbar from './components/Topbar';
 import UnAuthernticatedApp from './components/UnAuthernticatedApp';
 import Write from './components/Write';
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={ currentUser ?  <AuthernticatedApp currentUser={currentUser} /> : <UnAuthernticatedApp /> } />
         <Route path='/write' element={<Write />} />
         <Route path='/home' element={<Home />} />
+        <Route path='/signup' element={<SignupAccount />} />
       </Routes>
     </div>
   )
