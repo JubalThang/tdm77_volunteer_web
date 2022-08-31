@@ -1,7 +1,7 @@
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { enableIndexedDbPersistence, getFirestore } from "firebase/firestore";
 
 // incase need storage
 import { getStorage } from "firebase/storage"
@@ -21,6 +21,10 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth()
 export const db = getFirestore(app)
+
+
+// enable DB Persistence 
+enableIndexedDbPersistence(db)
 
 // storage
 export const storage = getStorage(app)

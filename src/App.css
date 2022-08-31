@@ -5,6 +5,15 @@
     .primary-btn {
         @apply bg-primary text-white font-medium px-4 py-2 rounded-md cursor-pointer h-12 uppercase
     }
+    .primary-btn-disabled {
+        @apply bg-gray-400 text-white font-medium px-4 py-2 rounded-md cursor-pointer h-12 uppercase
+    }
+    .confirm-btn {
+        @apply bg-green-600 text-white font-medium px-4 py-2 rounded-md cursor-pointer h-12 uppercase
+    }
+    .cancel-btn {
+        @apply bg-[#c5233e] text-white font-medium px-4 py-2 rounded-md cursor-pointer h-12 uppercase
+    }
     .primary-btn:hover {
         @apply bg-secondary
     }
@@ -15,7 +24,7 @@
         @apply fixed inset-0 flex justify-center items-center backdrop-blur-sm
     }
     .my-input {
-        @apply block border-b-2 border-primary w-full h-12 px-2 text-primary my-4
+        @apply block border-b border-primary w-full h-12 px-2 text-primary my-4
     }
     .my-input:focus {
         @apply outline-none
@@ -24,4 +33,5 @@
 
 .textarea-height {
     flex: 1;
+    background: #c5233e;
 }

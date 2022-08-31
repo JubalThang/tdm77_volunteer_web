@@ -50,10 +50,10 @@ export const SignupAccount = () => {
     // TODO: history push to home after successfully created an account
 
     return (
-        <div>
+        <div className='h-[calc(100vh-80px)]'>
             {info && <p className={` w-full bg-red-300 p-5 text-center font-medium text-white`}>{info}</p>}
-            <div className=" px-8 md:w-[60%] lg:w-1/2 2xl:w-1/3 m-auto">
-                <h1 className=" text-center mt-8 font-bold text-2xl text-primary p-8">Please Create an account!</h1>
+            <div className=" px-8 md:w-[60%] lg:w-1/2 xl:w-[40%] 2xl:w-1/3 m-auto">
+                <h1 className=" text-center font-bold text-2xl text-primary p-8">Please Create an account!</h1>
                 <form onSubmit={handleSubmit} onFocus={() => handleOnFocus()}>
                     <input type="email" name="email" autoComplete="email" className="my-input" placeholder="email address" required />
                     <input type="password" name="password" className="my-input" placeholder="password" required />
