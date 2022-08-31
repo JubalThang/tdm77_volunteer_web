@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true)
 
     function logout() {
-        signOut(auth)
+       return signOut(auth)
     }
 
     useEffect(() => {

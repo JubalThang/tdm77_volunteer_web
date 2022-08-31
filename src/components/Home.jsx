@@ -1,5 +1,15 @@
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { useAuth } from "../contexts/AuthContext"
 
 export default function Home() {
+    const { currentUser } = useAuth()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        !currentUser &&  navigate('/')
+    },[currentUser, navigate])
+
     return (
         <div>
             <div className="mx-4 px-2 md:px-10 md:w-[60%] md:mx-auto my-10 py-4 rounded-lg border space-y-8">

@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
-
 export default function Topbar({ currentUser }) {
+
     const { logout } = useAuth()
-    function handleLogOut() {
-       logout()
+    async function handleLogOut() {
+        try {
+            await logout()
+            window.location.reload()
+        } catch (err) {
+            console.log(err)
+        }
     }
     return (
         <div className={` w-screen h-20 bg-primary flex ${currentUser ? 'justify-between' : 'justify-center'} items-center px-5 md:px-10 `} >
