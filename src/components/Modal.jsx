@@ -1,8 +1,25 @@
+import { doc, setDoc } from "firebase/firestore"
+import { useState } from "react"
 import { useAuth } from "../contexts/AuthContext"
+import { db } from "../firebaseConfig"
 
 export const Modal = ({ setShowModal, checkedItems }) => {
 
+    // const pickedItems = useState(checkedItems.filter(checkedItem => checkedItem.isPickup))
     const { currentUser } = useAuth()
+
+   async function handleSubmit() {
+        // const userRef = doc(db,'users',currentUser.uid)
+        // await setDoc(userRef, pickedItems)
+        const updateBooks = checkedItems.map(book => {
+            if(book.isPickup){
+                return {...book, isChosen: true ,user: currentUser.uid}
+            }
+            return book
+        } )
+
+        console.log(updateBooks)
+    }
 
     return (
         <div className="modal z-10 w-full h-ful backdrop-blur-md">
@@ -18,7 +35,7 @@ export const Modal = ({ setShowModal, checkedItems }) => {
 
                 <h1 className='w-full text-center text-yellow-600 font-bold'><span className='text-red-700 text-xl'>&#9888;</span>You can't not change after submitted!</h1>
                 <div className="p-5 flex justify-evenly space-x-5">
-                    <button onClick={setShowModal} className="primary-btn w-full">Yes</button>
+                    <button onClick={handleSubmit} className="primary-btn w-full">Yes</button>
                     <button onClick={setShowModal} className="cancel-btn font-bold w-full">NO</button>
                 </div>
 

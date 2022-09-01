@@ -6,19 +6,11 @@ import { Modal } from "./Modal"
 
 export const VolSignUpPage = () => {
 
-
-    const [localData, setLocalData] = useState([])
-    const [isDisabled, setIsDisabled] = useState(true)
-    const [showModal, setShowModal] = useState(false)
-
     const { books } = useFirestore()
 
-    useEffect(() => {
-        const newExample = books.map(examp => {
-            return { ...examp, isPickup: false }
-        })
-        setLocalData(newExample)
-    }, [books])
+    const [localData, setLocalData] = useState(books.map(examp => ({...examp, isPickup: false})))
+    const [isDisabled, setIsDisabled] = useState(true)
+    const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
         showModal ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible'
@@ -37,16 +29,14 @@ export const VolSignUpPage = () => {
     const handleOnChange = (e) => {
 
         localData[e.target.dataset.action].isPickup = e.target.checked
-
         setLocalData(localData.map((example, i) => {
             if (i === e.target.id) {
                 example.isPickup = !example.isPickup
-                // setIsDisabled([...isDisabled, example])
+                // setIsDisabled([...isDisabled, example])ß
             }
             return example
         }))
 
-        // console.log(localData)
         const find = localData.find(data => data.isPickup === true)
         if (find) {
             setIsDisabled(false)
