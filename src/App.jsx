@@ -12,6 +12,7 @@ function App() {
 
   const { currentUser } = useAuth()
 
+  console.log(currentUser)
   return (
     <div className='flex flex-col justify-between h-[calc(100vh)]'>
       <Topbar currentUser={currentUser} />

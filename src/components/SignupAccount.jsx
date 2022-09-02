@@ -1,7 +1,8 @@
 import { createUserWithEmailAndPassword } from "firebase/auth"
+import { doc, setDoc } from "firebase/firestore"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { auth } from "../firebaseConfig"
+import { auth, db } from "../firebaseConfig"
 import { Footer } from "./Footer"
 
 export const SignupAccount = () => {
@@ -12,21 +13,27 @@ export const SignupAccount = () => {
 
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
+        const username  = e.target.username.value
         const email = e.target.email.value
         const password = e.target.password.value
         const confirm_password = e.target.confirm_password.value
 
         if (password === confirm_password) {
-            createUserWithEmailAndPassword(auth, email, password)
-                .then(() => navigate('/') )
+           await createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    setDoc(doc(db, "users", userCredential.user.uid), {
+                        username: username
+                    })
+                    navigate('/')
+                } )
                 .catch(err => {
                     switch (err.code) {
                         case 'auth/weak-password':
                             setInfo('Passoword should be at least 6 characters!')
                             break;
-                        case 'auth/email-already-exists':
+                        case 'auth/email-already-in-use':
                             setInfo('Email already exists!');
                             break;
                         default: setInfo(err.code)
@@ -56,7 +63,8 @@ export const SignupAccount = () => {
             <div className=" px-8 md:w-[60%] lg:w-1/2 xl:w-[40%] 2xl:w-1/3 m-auto pt-10 textarea-height">
                 <h1 className=" text-center font-bold text-2xl text-primary p-8">Please Create an account!</h1>
                 <form onSubmit={handleSubmit} onFocus={() => handleOnFocus()}>
-                    <input type="email" name="email" autoComplete="email" className="my-input" placeholder="email address" required />
+                    <input type="text" name="username" className="my-input" placeholder="username" required />
+                    <input type="email" name="email"  className="my-input" placeholder="email address" required />
                     <input type="password" name="password" className="my-input" placeholder="password" required />
                     {notMatch && <p className="block text-red-500 font-mono px-1 text-sm">Password not match!</p>}
                     <input type="password" name="confirm_password" className="my-input" placeholder="confirm password" required />

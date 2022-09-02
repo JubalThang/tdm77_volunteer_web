@@ -11,6 +11,7 @@ export const VolSignUpPage = () => {
     const [localData, setLocalData] = useState(books.map(examp => ({...examp, isPickup: false})))
     const [isDisabled, setIsDisabled] = useState(true)
     const [showModal, setShowModal] = useState(false)
+    const [bookIndexs, setBookIndexs] = useState()
 
     useEffect(() => {
         showModal ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible'
@@ -40,6 +41,7 @@ export const VolSignUpPage = () => {
         const find = localData.find(data => data.isPickup === true)
         if (find) {
             setIsDisabled(false)
+            setBookIndexs(localData.filter(data => data.isPickup === true))
         } else {
             setIsDisabled(true)
         }
@@ -65,7 +67,7 @@ export const VolSignUpPage = () => {
                 </div>
             </form>
             {
-                showModal && <Modal setShowModal={handleShowModal} checkedItems={localData} />
+                showModal && <Modal setShowModal={handleShowModal} checkedItems={bookIndexs} />
             }
             <Footer />
         </div>

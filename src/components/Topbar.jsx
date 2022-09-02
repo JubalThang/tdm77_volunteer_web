@@ -19,7 +19,7 @@ export default function Topbar({ currentUser }) {
                 currentUser && <>
                     <div className="hidden lg:flex items-center font-bold space-x-5 text-white uppercase">
                         {/* <NavLink to='/home'><h1>home</h1></NavLink> */}
-                        <h1>{currentUser.email}</h1>
+                        <h1>{currentUser.username}</h1>
                         <button className="uppercase px-4 py-2 bg-secondary rounded hover:bg-red-400 text-primary hover:text-white" onClick={() => handleLogOut()}>Log Out</button>
                     </div>
                     <div className='lg:hidden'>
