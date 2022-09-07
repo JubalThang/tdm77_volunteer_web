@@ -1,13 +1,12 @@
-import { doc, updateDoc } from "firebase/firestore"
-import { useState } from "react"
+import { doc, setDoc } from "firebase/firestore"
 import { useAuth } from "../contexts/AuthContext"
 import { db } from "../firebaseConfig"
 
 export const Modal = ({ setShowModal, checkedItems }) => {
 
+   
     // const pickedItems = useState(checkedItems.filter(checkedItem => checkedItem.isPickup))
-    const { currentUser } = useAuth()
-    console.log(checkedItems)
+    const { currentUser, updateBibleBooks } = useAuth()
    async function handleSubmit() {
 
         // const updateBooks = checkedItems.map(book => {
@@ -19,13 +18,28 @@ export const Modal = ({ setShowModal, checkedItems }) => {
 
         // const bookDocRef = doc(db,"books")
 
+        // setLocalData(localData.map(bible => {
+        //     if (bible.isPickup) {
+        //         return { ...bible, isChosen: true }
+        //     }
+        //     return bible
+        // }))
+
+        const userRef = doc(db,"users", currentUser.uid)
+        let booksPicked = []
         checkedItems.forEach(book => {
-            const docRef = doc(db,"books", book.key)
-             updateDoc(docRef, {
-                isChosen: true
-            })
+          
+            if(book.isPickup) {
+                const newBook = {
+                    name : book.name,
+                    uid: book.uid
+                }
+                // console.log(newBook)
+                booksPicked.push(newBook)
+            }
         })
-        // await updateDoc(bookDocRef, checkedItems)
+        setDoc(userRef, {...currentUser, books: booksPicked})
+    //    console.log(booksPicked)
        window.location.reload()
         
     }

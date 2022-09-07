@@ -58,7 +58,7 @@ export const SignupAccount = () => {
     // TODO: history push to home after successfully created an account
 
     return (
-        <div className='h-[calc(100vh-80px)] flex flex-col justify-between'>
+        <div className='flex flex-col justify-between'>
             {info && <p className={` w-full bg-red-300 p-5 text-center font-medium text-white`}>{info}</p>}
             <div className=" px-8 md:w-[60%] lg:w-1/2 xl:w-[40%] 2xl:w-1/3 m-auto pt-10 textarea-height">
                 <h1 className=" text-center font-bold text-2xl text-primary p-8">Please Create an account!</h1>
@@ -75,7 +75,6 @@ export const SignupAccount = () => {
                     <Link to='/' className=" underline text-primary">I have an account</Link>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }

@@ -2,6 +2,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthernticatedApp from './components/AuthernticatedApp';
+import { Footer } from './components/Footer';
 import Home from './components/Home';
 import { SignupAccount } from './components/SignupAccount';
 import Topbar from './components/Topbar';
@@ -12,16 +13,18 @@ function App() {
 
   const { currentUser } = useAuth()
 
-  console.log(currentUser)
   return (
     <div className='flex flex-col justify-between h-[calc(100vh)]'>
       <Topbar currentUser={currentUser} />
-      <Routes>
-        <Route path='/' element={currentUser ? <AuthernticatedApp currentUser={currentUser} /> : <UnAuthernticatedApp />} />
-        {/* <Route path='/' element={currentUser ? <VolSignUpPage /> : <UnAuthernticatedApp />} /> */}
-        <Route path='/home' element={<Home />} />
-        <Route path='/signup' element={<SignupAccount />} />
-      </Routes>
+      <div className='flex-1 overflow-scroll'>
+        <Routes>
+          <Route path='/' element={currentUser ? <AuthernticatedApp currentUser={currentUser} /> : <UnAuthernticatedApp />} />
+          {/* <Route path='/' element={currentUser ? <VolSignUpPage /> : <UnAuthernticatedApp />} /> */}
+          <Route path='/home' element={<Home />} />
+          <Route path='/signup' element={<SignupAccount />} />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   )
 }

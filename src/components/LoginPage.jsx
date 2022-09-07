@@ -49,7 +49,6 @@ export const LgoinPage = () => {
                     <Link to='signup' className=" underline text-primary">I don't have an account yet</Link>
                 </div>
             </div>
-            <Footer />
         </div>
     )
 }
