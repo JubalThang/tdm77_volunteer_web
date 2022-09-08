@@ -10,7 +10,6 @@ export default function Home() {
         !currentUser && navigate('/')
     }, [currentUser, navigate])
 
-    console.log(users[0].books)
     return (
         <div className="">
 
