@@ -1,10 +1,14 @@
 
+import { useAuth } from "../contexts/AuthContext";
 import { BibleProvider } from "../contexts/BibleContext";
 import Home from "./Home";
 import { VolSignUpPage } from "./VolSignUpPage";
 
-export default function AuthernticatedApp({currentUser}) {
+export default function AuthernticatedApp() {
 
+  const { currentUser } = useAuth()
+
+  console.log(currentUser)
   return (
     <div>
       <BibleProvider>

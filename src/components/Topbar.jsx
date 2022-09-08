@@ -23,7 +23,7 @@ export default function Topbar({ currentUser }) {
                         <button className="uppercase px-4 py-2 bg-secondary rounded hover:bg-red-400 text-primary hover:text-white" onClick={() => handleLogOut()}>Log Out</button>
                     </div>
                     <div className='lg:hidden'>
-                        <button className="uppercase px-4 py-2 border rounded text-white font-bold" onClick={() => handleLogOut()}>Log Out</button>
+                        <button className="uppercase px-4 py-2 border rounded text-white " onClick={() => handleLogOut()}>Log Out</button>
                     </div>
                 </>
             }

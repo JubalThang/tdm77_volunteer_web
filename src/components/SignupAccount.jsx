@@ -3,7 +3,7 @@ import { doc, setDoc } from "firebase/firestore"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { auth, db } from "../firebaseConfig"
-import { Footer } from "./Footer"
+import { MyInput } from "./MyInput"
 
 export const SignupAccount = () => {
 
@@ -60,19 +60,19 @@ export const SignupAccount = () => {
     return (
         <div className='flex flex-col justify-between'>
             {info && <p className={` w-full bg-red-300 p-5 text-center font-medium text-white`}>{info}</p>}
-            <div className=" px-8 md:w-[60%] lg:w-1/2 xl:w-[40%] 2xl:w-1/3 m-auto pt-10 textarea-height">
-                <h1 className=" text-center font-bold text-2xl text-primary p-8">Please Create an account!</h1>
+            <div className=" px-8 md:w-[60%] lg:w-1/2 xl:w-[40%] 2xl:w-1/3 m-auto pt-8 w-full text-center ">
+                <h1 className=" text-center font-bold text-2xl text-primary p-2">Sign Up!</h1>
                 <form onSubmit={handleSubmit} onFocus={() => handleOnFocus()}>
-                    <input type="text" name="username" className="my-input" placeholder="username" required />
-                    <input type="email" name="email"  className="my-input" placeholder="email address" required />
-                    <input type="password" name="password" className="my-input" placeholder="password" required />
+                    <MyInput type='text' name="username" placeholder="username" required={true} />
+                    <MyInput type="email" name="email" placeholder="email address" required={true} />
+                    <MyInput type="password" name="password" placeholder="password" required={true} />
                     {notMatch && <p className="block text-red-500 font-mono px-1 text-sm">Password not match!</p>}
-                    <input type="password" name="confirm_password" className="my-input" placeholder="confirm password" required />
+                    <MyInput type="password" name="confirm_password" placeholder="confirm password" required={true} />
                     {notMatch && <p className="block text-red-500 font-mono px-1 text-sm">Password not match!</p>}
-                    <input type="submit" className=" primary-btn w-full my-8 " value="Sign Up!" />
+                    <input type="submit" className=" primary-btn max-w-max my-8 " value="Sign Up!" />
                 </form>
                 <div className="w-full text-right">
-                    <Link to='/' className=" underline text-primary">I have an account</Link>
+                    <Link to='/' className=" underline text-primary">Account nei khin</Link>
                 </div>
             </div>
         </div>

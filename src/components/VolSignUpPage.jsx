@@ -7,27 +7,15 @@ import { Modal } from "./Modal"
 export const VolSignUpPage = () => {
     
     const { users } = useAuth()
-    // const [localData, setLocalData] = useState(books.map(examp => ({...examp, isPickup: false})))
     const { bibleBooks } = useBibleContext()
     const chosenBooks = bibleBooks.map(bible => 
         users.flatMap(user => user.books)
         .some(book => book && book.uid === bible.uid) ?  
         {...bible, isChosen: true} : bible
         )
-   
-    // const [localData, setLocalData] = useState(bibleBooks.map(bible => users.books && users.books.some(book => book.uid === bible.uid) ? {...bible, isChosen: true} : bible))
     const [localData, setLocalData] = useState(chosenBooks)
     const [isDisabled, setIsDisabled] = useState(true)
     const [showModal, setShowModal] = useState(false)
-    // chosenBooks.map(chose => chose.books.map(book => console.log(book.uid)))
-
-
-    // const booksFilter = () => {
-    //   return  bibleBooks.map(bible => {
-    //         const temp = {}
-    //         users.some(user => user.books && user.books.forEach(book => book.uid === bible.uid && Object.assign(temp,{...bible, isChosen: true}))) ? temp : bible
-    //     })
-    // }
 
     useEffect(() => {
         showModal ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'visible'
@@ -37,7 +25,6 @@ export const VolSignUpPage = () => {
         const find = localData.find(data => data.isPickup === true)
         if (find) {
             setIsDisabled(false)
-            // setBookIndexs(localData.filter(data => data.isPickup === true))
         } else {
             setIsDisabled(true)
         }
@@ -64,7 +51,6 @@ export const VolSignUpPage = () => {
 
     return (
         <div className="flex flex-col">
-           
                 <h1 className="font-bold md:font-medium md:text-2xl text-center text-primary py-5 ">Please choose book(s) you would like to contribute.</h1>
                 <p className="text-red-500 text-center text-[14px] md:text-base ">If the book is <span className=" line-through text-gray-400">grayed out</span>, someone had picked up!</p>
             
@@ -76,7 +62,6 @@ export const VolSignUpPage = () => {
                         ))
                     }
                 </div>
-
                 <div className='inline-flex justify-center w-full py-10'>
                     <input type="submit" className={`${isDisabled ? 'primary-btn-disabled' : 'primary-btn'} `} value='Submit' disabled={isDisabled} />
                 </div>
@@ -87,25 +72,3 @@ export const VolSignUpPage = () => {
         </div>
     )
 }
-
-
-/// older version of handleClick
-// const handleOnChange = (e) => {
-
-//     localData[e.target.dataset.action].isPickup = e.target.checked
-//     setLocalData(localData.map((example, i) => {
-//         if (i === e.target.id) {
-//             example.isPickup = !example.isPickup
-//             console.log('example',example)
-//         }
-//         return example
-//     }))
-
-//     const find = localData.find(data => data.isPickup === true)
-//     if (find) {
-//         setIsDisabled(false)
-//         setBookIndexs(localData.filter(data => data.isPickup === true))
-//     } else {
-//         setIsDisabled(true)
-//     }
-// }
