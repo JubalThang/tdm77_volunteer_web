@@ -14,9 +14,9 @@ function App() {
   const { currentUser } = useAuth()
   
   return (
-    <div className='flex flex-col justify-between h-[calc(100vh)]'>
+    <div className='flex flex-col justify-between h-[calc(100vh-80px)] font-figfree'>
       <Topbar currentUser={currentUser} />
-      <div className='flex-1 overflow-scroll'>
+      <div className='flex-1 overflow-auto'>
         <Routes>
           <Route path='/' element={currentUser ? <AuthernticatedApp /> : <UnAuthernticatedApp />  } />
           {/* <Route path='/' element={currentUser ? <VolSignUpPage /> : <UnAuthernticatedApp />} /> */}

@@ -14,6 +14,9 @@
     .cancel-btn {
         @apply bg-[#c5233e] text-white font-medium px-4 py-2 rounded-md cursor-pointer uppercase
     }
+    .cancel-btn:hover {
+        @apply bg-red-400
+    }
     .primary-btn:hover {
         @apply bg-secondary
     }
@@ -28,6 +31,12 @@
     }
     .my-input:focus {
         @apply outline-none
+    }
+    .like-bg {
+        @apply bg-[#F5F5F5] py-1 px-2 rounded-md
+    }
+    .like-bg:hover {
+        @apply bg-[#AEAEAE]
     }
 }
 

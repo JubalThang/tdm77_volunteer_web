@@ -50,9 +50,9 @@ export const VolSignUpPage = () => {
     }
 
     return (
-        <div className="flex flex-col">
-                <h1 className="font-bold md:font-medium md:text-2xl text-center text-primary py-5 ">Please choose book(s) you would like to contribute.</h1>
-                <p className="text-red-500 text-center text-[14px] md:text-base ">If the book is <span className=" line-through text-gray-400">grayed out</span>, someone had picked up!</p>
+        <div className="flex flex-col ">
+                {/* <h1 className="font-bold md:font-medium md:text-2xl text-center text-primary py-5 ">Please choose book(s) you would like to contribute.</h1> */}
+                <p className="text-red-500 text-center py-5 text-[14px] md:text-base ">If the book is <span className=" line-through text-gray-400">grayed out</span>, someone had picked up!</p>
             
             <form onSubmit={(e) => handleOnSubmit(e)} className=" md:w-[80%] mx-auto" >
                 <div className="grid px-5 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 mt-5">

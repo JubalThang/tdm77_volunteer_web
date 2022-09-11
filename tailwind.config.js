@@ -7,6 +7,9 @@ module.exports = {
                 primary: '#555279',
                 secondary: '#AEAAE8',
                 bgprimary: '#E3E3E3'
+            },
+            fontFamily: {
+                figfree: "'Figtree',sans-serif"
             }
         },
     },

@@ -7,8 +7,7 @@ import { VolSignUpPage } from "./VolSignUpPage";
 export default function AuthernticatedApp() {
 
   const { currentUser } = useAuth()
-
-  console.log(currentUser)
+  
   return (
     <div>
       <BibleProvider>
