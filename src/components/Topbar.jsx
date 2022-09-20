@@ -13,7 +13,7 @@ export default function Topbar({ currentUser }) {
         }
     }
     return (
-        <div className={` w-screen h-14 md:h-20 bg-primary text-xl flex ${currentUser ? 'justify-between' : 'justify-center'} items-center px-5 md:px-10 `} >
+        <div className={` w-screen h-14 md:h-20 bg-gradient-to-r from-primary to-primarybg_end  text-xl flex ${currentUser ? 'justify-between' : 'justify-center'} items-center px-5 md:px-10 `} >
             <Link to='/'> <h1 className=" md:hidden font-bold text-md text-white w-full tracking-widest">TDM77</h1> <h1 className="hidden md:block font-bold text-md md:text-2xl w-full text-white tracking-widest">TEDIM LAISIANGTHO VOLUNTEER</h1></Link>
             {
                 currentUser && <>
