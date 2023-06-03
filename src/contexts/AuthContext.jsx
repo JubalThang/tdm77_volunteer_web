@@ -12,7 +12,7 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(null)
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [users, setUsers] = useState([])
 
     function logout() {
@@ -20,6 +20,7 @@ export function AuthProvider({ children }) {
     }
 
     useEffect(() => {
+        setLoading(true)
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             const fetch = async () => {
                 let temp = []
@@ -44,7 +45,8 @@ export function AuthProvider({ children }) {
     const value = {
         currentUser,
         logout,
-        users
+        users,
+        loading
     }
 
     return (

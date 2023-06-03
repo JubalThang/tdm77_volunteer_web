@@ -3,22 +3,22 @@
 @tailwind utilities;
 @layer components {
     .primary-btn {
-        @apply bg-primary text-white font-medium px-4 py-2 rounded-md cursor-pointer uppercase
+        @apply bg-primary text-white font-medium px-4 py-2 rounded-md cursor-pointer uppercase border-2 border-primary transition-all duration-150
     }
     .primary-btn-disabled {
-        @apply bg-gray-400 text-white font-medium px-4 py-2 rounded-md cursor-pointer h-12 uppercase
+        @apply bg-gray-400 text-white font-medium px-4 py-2 rounded-md cursor-pointer uppercase border-2 border-gray-400 transition-all duration-150
     }
     .confirm-btn {
         @apply bg-green-600 text-white font-medium px-4 py-2 rounded-md cursor-pointer h-12 uppercase
     }
     .cancel-btn {
-        @apply bg-[#c5233e] text-white font-medium px-4 py-2 rounded-md cursor-pointer uppercase
+        @apply bg-[#c5233e] text-white font-medium px-4 py-2 rounded-md cursor-pointer uppercase border-2 border-[#c5233e]
     }
     .cancel-btn:hover {
-        @apply bg-red-400
+        @apply text-[#c5233e] bg-white font-bold transition-all duration-300
     }
     .primary-btn:hover {
-        @apply bg-secondary
+        @apply bg-white text-primary border-primary border-2 font-bold transition-all duration-300
     }
     .input-area {
         @apply py-2 px-4 border border-primary w-full rounded h-12

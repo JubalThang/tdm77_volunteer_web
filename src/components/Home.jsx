@@ -26,15 +26,16 @@ export default function Home() {
             <h1 className="pt-4 md:p-4 md:text-xl font-bold capitalize">{texts.zomi.VOLUNTEER_TENG}</h1>
             {
                 users.map(user => (
-                    <div key={user.uid} className="mx-4 px-2 md:px-10 md:w-[70%] lg:w-[70%] md:mx-auto py-4 mt-4 rounded-lg border space-y-3 mb-10 bg:white shadow">
-                        <div className="flex items-center py-3">
-                            <h1 className=" font-medium text-primary mr-3">Book(s):</h1>
-                            <div className="flex space-x-4 w-full overflow-y-hidden">
-                                {user.books && user.books.map(book => (<h1 key={book.uid} className=" bg-bgprimary text-primary font-medium py-1 px-4 rounded-md whitespace-nowrap capitalize">{book.name}</h1>))}
-                            </div>
+                    user.books && (<div key={user.uid} className="mx-4 px-2 md:px-10 md:w-[70%] lg:w-[70%] md:mx-auto py-4 mt-4 rounded-lg border space-y-3 mb-10 bg:white shadow">
+                    <div className="flex items-center py-3">
+                        <h1 className=" font-medium text-primary mr-3">Book(s):</h1>
+                        <div className="flex space-x-4 w-full overflow-y-hidden">
+                            {user.books.map(book => (<h1 key={book.uid} className=" bg-bgprimary text-primary font-medium py-1 px-4 rounded-md whitespace-nowrap capitalize">{book.name}</h1>))}
                         </div>
-                        <h1 className='w-full text-right text-primary font-semibold'><span className="text-sm font-mono text-secondary mr-2">contributor:</span>{user.username}</h1>
                     </div>
+                    <h1 className='w-full text-right text-primary font-semibold'><span className="text-sm font-mono text-secondary mr-2">contributor:</span>{user.username}</h1>
+                </div>)
+                    
                 ))
             }
         </div >

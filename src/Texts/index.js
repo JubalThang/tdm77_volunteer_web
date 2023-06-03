@@ -6,7 +6,7 @@ const texts = {
         SINGUP_LUNGDAM: 'lungdam ei nong signed up!',
         VOLUNTEER_TENG: 'volunteer hong ki hel thei teng.',
         MODAL_QUESTION: 'Hih anuai aa te tel takpi ding maw?',
-        MODAL_ALERT: "You can't change after submitted!",
+        MODAL_ALERT: "Submit khin le teh ki khel kik thei nawn lo hi!",
 
     },
     eng: {

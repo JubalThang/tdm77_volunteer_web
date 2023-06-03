@@ -9,9 +9,7 @@ export function useBibleContext() {
 
 export function BibleProvider({ children }) {
     const [bibleBooks, setBibleBooks] = useState(books)
-
-
-
+    
     function handleSetBibleBooks(books){
         setBibleBooks(books)
     }

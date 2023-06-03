@@ -28,6 +28,7 @@ export const Modal = ({ setShowModal, checkedItems }) => {
        window.location.reload()
     }
 
+   
     return (
         <div className="modal z-10 w-full h-ful backdrop-blur-md">
             <div className="bg-white w-[80%] lg:w-1/3 lg:min-h-[50%] rounded border-primary border shadow flex flex-col justify-between">
@@ -40,9 +41,9 @@ export const Modal = ({ setShowModal, checkedItems }) => {
                     }
                 </ol>
 
-                <h1 className='w-full text-center text-yellow-600 font-bold'><span className='text-red-700 text-xl'>&#9888;</span>{texts.zomi.MODAL_ALERT}</h1>
+                <h1 className='w-full text-center text-red-500 font-bold'><span className='text-red-700 text-xl px-1'>&#9888;</span>{texts.zomi.MODAL_ALERT}</h1>
                 <div className="p-5 flex justify-evenly space-x-5">
-                    <button onClick={handleSubmit} className="primary-btn w-full">Yes</button>
+                    <button onClick={handleSubmit} className="primary-btn w-full">Submit</button>
                     <button onClick={setShowModal} className="cancel-btn font-bold w-full">NO</button>
                 </div>
 
